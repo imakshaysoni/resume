@@ -4,7 +4,7 @@ on:
         branches:
             - "main"
         paths:
-            - "resume.tex"
+            - "Akshay-Soni-Resume.tex"
             - "index.html"
             - ".github/workflows/**"
     pull_request:
