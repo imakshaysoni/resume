@@ -2,128 +2,140 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Akshay Soni | Backend Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshay Soni - Resume</title>
 
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
     }
 
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+    .header {
+      padding: 12px 16px;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    h2 {
-      margin-top: 40px;
-      color: #38bdf8;
+    .header h1 {
+      font-size: 16px;
+      font-weight: 500;
     }
 
-    p {
-      color: #94a3b8;
-      line-height: 1.6;
-    }
-
-    .buttons {
-      margin-top: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 16px;
-      margin-right: 10px;
-      border-radius: 6px;
+    .actions a {
       text-decoration: none;
-      font-size: 14px;
+      color: #fff;
+      background: #007bff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      margin-left: 8px;
     }
 
-    .primary {
-      background: #38bdf8;
-      color: #000;
+    .actions a:hover {
+      background: #0056b3;
     }
 
-    .secondary {
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
+    .viewer {
+      flex: 1;
+      background: #ccc;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 16px;
-      border-radius: 8px;
-      margin-top: 12px;
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
-    .skills span {
-      display: inline-block;
-      background: #1e293b;
-      padding: 6px 10px;
-      margin: 5px;
-      border-radius: 6px;
-      font-size: 12px;
+    /* Fallback message */
+    .fallback {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+
+    /* Print optimization */
+    @media print {
+      .header {
+        display: none;
+      }
+
+      body, html {
+        height: auto;
+      }
+
+      iframe {
+        height: 100%;
+      }
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .actions {
+        margin-top: 8px;
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="container">
-
-    <!-- HERO -->
-    <h1>Akshay Soni</h1>
-    <p>Senior Backend Engineer | Python | FastAPI | Distributed Systems</p>
-
-    <div class="buttons">
-      <a href="resume.html" class="btn primary">View Resume</a>
-      <a href="Akshay-Soni-Resume.pdf" class="btn secondary" download>Download Resume</a>
+    
+    <!-- Header -->
+    <div class="header">
+      <h1>Akshay Soni - Resume</h1>
+      <div class="actions">
+        <a href="Akshay-Soni-Resume.pdf" target="_blank">Open</a>
+        <a href="Akshay-Soni-Resume.pdf" download>Download</a>
+      </div>
     </div>
 
-    <!-- ABOUT -->
-    <h2>About</h2>
-    <p>
-      Backend engineer with 8+ years of experience building scalable APIs,
-      high-performance systems, and data-driven platforms. Strong focus on
-      performance, clean architecture, and reliability.
-    </p>
+    <!-- PDF Viewer -->
+    <div class="viewer">
+      <iframe 
+        src="Akshay-Soni-Resume.pdf"
+        onerror="showFallback()">
+      </iframe>
 
-    <!-- SKILLS -->
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>Python</span>
-      <span>FastAPI</span>
-      <span>SQL</span>
-      <span>NoSQL</span>
-      <span>Redis</span>
-      <span>System Design</span>
-      <span>Microservices</span>
+      <!-- Fallback -->
+      <div class="fallback" id="fallback">
+        <p>Your browser cannot display the resume.</p>
+        <p>
+          <a href="Akshay-Soni-Resume.pdf" target="_blank">
+            Click here to view/download
+          </a>
+        </p>
+      </div>
     </div>
-
-    <!-- PROJECTS -->
-    <h2>Projects</h2>
-
-    <div class="card">
-      <h3>Scalable Notification System</h3>
-      <p>Designed async event-driven system handling millions of messages/day using queues & caching.</p>
-    </div>
-
-    <div class="card">
-      <h3>High Performance API Gateway</h3>
-      <p>Built FastAPI-based gateway reducing latency by 40% with caching & connection pooling.</p>
-    </div>
-
-    <!-- CONTACT -->
-    <h2>Contact</h2>
-    <p>Email: akshaysoni460@gmail.com</p>
 
   </div>
+
+  <script>
+    function showFallback() {
+      document.querySelector("iframe").style.display = "none";
+      document.getElementById("fallback").style.display = "block";
+    }
+  </script>
 </body>
 </html>
