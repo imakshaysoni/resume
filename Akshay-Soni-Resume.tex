@@ -1,236 +1,228 @@
-%-------------------------
-% Resume in Latex
-% Author : Gennadii Chursov
-% Based off of: https://github.com/sb2nov/resume and https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs
-% License : MIT
-%------------------------
+%% Akshay Soni — Resume
+%% Compile with: pdflatex Akshay_Soni_Resume.tex
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[10.5pt, letterpaper]{article}
 
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
+% ── Packages ────────────────────────────────────────────────
+\usepackage[
+  top=0.55in, bottom=0.55in,
+  left=0.65in, right=0.65in
+]{geometry}
+\usepackage{fontenc}
+\usepackage{inputenc}
+\usepackage{microtype}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{hyperref}
 \usepackage{tabularx}
-\input{glyphtounicode}
+\usepackage{array}
+\usepackage{parskip}
 
+% ── Colors ──────────────────────────────────────────────────
+\definecolor{accentblue}{HTML}{185FA5}
+\definecolor{darktext}{HTML}{1A1A2E}
+\definecolor{graytext}{HTML}{555555}
+\definecolor{rulecolor}{HTML}{C8D8EC}
 
-%----------FONT OPTIONS----------
-% sans-serif
-% \usepackage[sfdefault]{FiraSans}
-% \usepackage[sfdefault]{roboto}
-% \usepackage[sfdefault]{noto-sans}
-% \usepackage[default]{sourcesanspro}
-
-% serif
-% \usepackage{CormorantGaramond}
-% \usepackage{charter}
-
-
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
-
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-% Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
-
-%-------------------------
-% Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+% ── Hyperref setup ──────────────────────────────────────────
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accentblue,
+  linkcolor=accentblue,
+  hidelinks
 }
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+% ── Typography ──────────────────────────────────────────────
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ── Section heading style ───────────────────────────────────
+\titleformat{\section}
+  {\small\bfseries\color{accentblue}\vspace{2pt}}
+  {}{0em}{\uppercase}
+  [\vspace{1pt}{\color{rulecolor}\hrule}\vspace{4pt}]
+\titlespacing{\section}{0pt}{10pt}{4pt}
+
+% ── Bullet list settings ────────────────────────────────────
+\setlist[itemize]{
+  leftmargin=1.4em,
+  itemsep=1.5pt,
+  parsep=0pt,
+  topsep=2pt,
+  label=\textbullet
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+% ── Custom commands ─────────────────────────────────────────
+
+% Job header: Title · Company | Location | Dates
+\newcommand{\jobheader}[4]{%
+  \vspace{5pt}%
+  {\color{darktext}\textbf{#1}}%
+  {\color{graytext}\ $\cdot$\ #2}\\[1pt]%
+  {\small\color{graytext}#3 \quad|\quad #4}%
+  \vspace{2pt}%
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
+% Bold prefix inside a bullet
+\newcommand{\bitem}[2]{%
+  \item \textbf{#1}#2%
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+% Skill row: bold category + normal text
+\newcommand{\skillrow}[2]{%
+  \textbf{#1:} #2\\[2pt]%
+}
 
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%-------------------------------------------
-%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+% ════════════════════════════════════════════════════════════
 \begin{document}
+% ════════════════════════════════════════════════════════════
 
-%----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
-
+% ── Header ──────────────────────────────────────────────────
 \begin{center}
-    \textbf{\Huge \scshape  Akshay Soni} \\ \vspace{1pt}
-    \small \textit{Senior Software Developer } \\
-    Pune, India $|$ {Contact Number: 8871667107}
+  {\LARGE\bfseries\color{darktext} Akshay Soni}\\[4pt]
+  {\color{accentblue}
+    Senior Python \& AWS Engineer
+    \ $\cdot$\
+    Distributed Systems \& Serverless Architectures
+  }\\[5pt]
+  {\small\color{graytext}
+    Pune, India
+    \ $\cdot$\
+    +91 88716 67107
+    \ $\cdot$\
+    \href{mailto:akshaysoni460@gmail.com}{\underline{akshaysoni460@gmail.com}}
+    \ $\cdot$\
+    \href{https://linkedin.com/in/imakshaysoni}{\underline{linkedin.com/in/imakshaysoni}}
+    \ $\cdot$\
+    \href{https://github.com/imakshaysoni}{\underline{github.com/imakshaysoni}}
+  }
 \end{center}
+ 
+\vspace{2pt}
+ 
+% ── Professional Summary ────────────────────────────────────
+\section{Professional Summary}
 
-%-----------SUMMARY-----------
-\section*{Profile}
-Software Engineer with 7.5+ years in Python and AWS, specializing in high-level design (HLD) of scalable, low-latency distributed systems via microservices, event-driven architectures, and serverless patterns (Lambda, API Gateway, EventBridge, Step Functions).
-Led HLD for resilient workflows, high-performance APIs, and real-time monitoring systems—using priority queues for efficient task orchestration—achieving 20-25\% faster responses, 25\% higher concurrency, 20\% reduced latency, and 25\% less downtime.
-Passionate about principled system design, problem-solving, and collaboration for large-scale solutions.
+Senior Python \& AWS Engineer with 7.5+ years designing and shipping scalable distributed
+systems across fintech, telecom, cloud infrastructure, and big data. Specializes in
+high-level design (HLD) of microservices, event-driven, and serverless architectures ---
+delivering measurable results: 25\% reduction in service downtime, 20\% improvement in
+API throughput, and 25\% increase in concurrent user capacity. Passionate about system
+design principles, fault-tolerant architecture, and building production systems that
+perform reliably at scale.
 
-%-----------Links-----------
-\section{Links}
- \small { \href{mailto:akshaysoni460@gmail.com}{\underline{akshaysoni460@gmail.com}} $|$
-  \href{https://www.linkedin.com/in/imakshaysoni}{\underline{linkedin.com/imakshaysoni}} $|$
-    \href{https://github.com/imakshaysoni}{\underline{github.com/imakshaysoni}} $|$
-     \href{https://leetcode.com/iamakshaysoni}{\underline{leetcode.com/iamakshaysoni}} 
-    }
+% ── Technical Skills ────────────────────────────────────────
+\section{Technical Skills}
 
-%-----------PROGRAMMING SKILLS-----------
-\section{Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-     \textbf{Programming Languages}{: Python, SQL, NoSQL} \\
-     \textbf{Frameworks}{: FastApi, Boto3} \\   
-\textbf{Distributed Computing}{: Hadoop, Spark, Databricks, Redis, Kafka} \\
-     \textbf{Software Development}{: Data Structure and Algorithms, System Design} \\  \textbf{Database Management}{: PostgreSQL, MySQL} \\\textbf{Cloud Platform }{: AWS (Lambda, EC2, S3, Step Function, Event Bridge, SQS) }
-    }}
- \end{itemize}
+\skillrow{Languages}{Python $\cdot$ SQL $\cdot$ NoSQL}
+\skillrow{Frameworks \& Libraries}{FastAPI $\cdot$ Flask $\cdot$ Django $\cdot$ Boto3 $\cdot$ Celery $\cdot$ SQLAlchemy}
+\skillrow{Cloud \& DevOps}{AWS (Lambda $\cdot$ EC2 $\cdot$ S3 $\cdot$ API Gateway $\cdot$ Step Functions $\cdot$ EventBridge $\cdot$ SQS $\cdot$ CloudWatch $\cdot$ RDS) $\cdot$ Docker $\cdot$ CI/CD $\cdot$ Git}
+\skillrow{Distributed Systems}{Apache Kafka $\cdot$ Apache Spark (PySpark) $\cdot$ Hadoop $\cdot$ Databricks $\cdot$ Redis $\cdot$ RabbitMQ}
+\skillrow{Databases}{PostgreSQL $\cdot$ MySQL $\cdot$ DynamoDB}
+\skillrow{Architecture \& Design}{Microservices Architecture $\cdot$ Event-Driven Architecture $\cdot$ Serverless $\cdot$ High-Level Design (HLD) $\cdot$ REST APIs $\cdot$ System Design}
+\skillrow{Practices}{Data Structures \& Algorithms $\cdot$ Agile $\cdot$ Scrum $\cdot$ Code Review $\cdot$ Technical Documentation}
 
+% ── Professional Experience ──────────────────────────────────
+\section{Professional Experience}
 
-%-----------EXPERIENCE-----------
-\section{Experience}
-  \resumeSubHeadingListStart
+% Synechron
+\jobheader{Senior Associate Technology (Python \& AWS)}{Synechron}{Pune, India}{Aug 2024 -- Present}
+\begin{itemize}
+  \item Accelerated high-volume financial risk analysis by developing multiprocessing Python
+        scripts deployed on AWS Lambda --- enabling parallel execution across thousands of
+        daily data records and reducing processing time by 30\%.
+  \item Engineered robust GSM domain solutions in Python that improved system SLA compliance
+        and directly reduced incident escalation rate --- contributing to measurable
+        reliability improvements across the production environment.
+  \item Designed and maintained scalable cloud-native workflows on AWS (Lambda, S3,
+        CloudWatch), ensuring sub-second SLA response times for critical financial
+        operations serving enterprise clients.
+  \bitem{Led and mentored a team of engineers}{\ --- conducted regular code reviews,
+        defined technical task breakdown, and ensured on-time delivery of sprint
+        commitments across GSM domain feature work.}
+\end{itemize}
 
-      
-% -----------Multiple Positions Heading-----------
-%    \resumeSubSubheading
-%     {Software Engineer I}{Oct 2014 - Sep 2016}
-%     \resumeItemListStart
-%        \resumeItem{Apache Beam}
-%          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-%     \resumeItemListEnd
-%    \resumeSubHeadingListEnd
-%-------------------------------------------
-    \resumeSubheading
-      {Senior Technology Associate}{Aug 2024 - Present}
-      {Synechron} {Pune, India}
-      \resumeItemListStart
-        \resumeItem{Accelerated financial risk analysis by developing advanced Python scripts with multiprocessing and deploying them on AWS Lambda, enabling scalable and efficient processing for high-volume data.}
-        \resumeItem{Enhanced GSM domain capabilities by delivering robust, tailored solutions that met project requirements and improved overall system reliability and improve SLA.}
-       \resumeItemListEnd
-    \resumeSubheading
-      {Senior Software Developer}{Jan 2022 - Aug 2024}
-      {Opcito Technology}{Pune, India}
-      \resumeItemListStart
-        \resumeItem{Boosted API performance by orchestrating high-performance RESTful APIs using FastAPI, achieving 20\% faster response times and 25\% greater concurrent user capacity through seamless integration with AWS API Gateway. }
-        \resumeItem{Delivered a resilient serverless Python application on AWS Lambda using Boto3 for integrations with S3 and RDS, while implementing event-driven architecture with EventBridge, Step Functions, CloudWatch, and Docker—automating workflows and enhancing monitoring for scalable cloud operations.}
-        \resumeItem{Improved system efficiency in a microservices architecture by developing Flask-based applications with optimized REST APIs, resulting in 20\% better performance and 15\% reduced response times.}
-        \resumeItem{Streamlined integration and asynchronous processing by implementing RabbitMQ for message queuing and Celery for task management, increasing overall system efficiency by 20\%.}
-       \resumeItemListEnd
-    \resumeSubheading
-      {Data Engineer}{Aug 2021 - Jan 2022}
-      {Futurense Technologies }{Bangalore, India}
-      \resumeItemListStart
-        \resumeItem{Reduced big data processing time by 20\% through Apache PySpark implementation for distributed computing, unlocking real-time insights from large datasets.}
-        \resumeItem{Accelerated data-driven decision-making by leveraging Apache PySpark to analyze and transform massive datasets, improving processing speed by 20\%.}
-      \resumeItemListEnd
+\vspace{4pt}
 
-      \resumeSubheading
-      {Software Engineer}{Nov 2018 - Aug 2021}
-      {Amdocs SmartOps India}{Pune, India}
-      \resumeItemListStart
-        \resumeItem{Reduced service downtime by 25\% and improved response times by 15\% across 10+ Amdocs accounts by developing a cutting-edge SLA Monitoring Tool using Python and Flask.}
-        \resumeItem{Empowered data-driven decisions by designing web solutions with real-time SLA analysis, insightful visualizations, and RESTful APIs—streamlining management of users, SLAs, and accounts.}
-      \resumeItemListEnd
+% Opcito
+\jobheader{Senior Software Engineer}{Opcito Technologies}{Pune, India}{Jan 2022 -- Aug 2024}
+\begin{itemize}
+  \item Boosted API throughput by 20\% and increased concurrent user capacity by 25\% ---
+        architected high-performance RESTful APIs using FastAPI integrated with AWS API
+        Gateway, serving production traffic at scale.
+  \item Eliminated manual deployment overhead by engineering a fully serverless Python
+        application on AWS Lambda with event-driven orchestration via EventBridge, Step
+        Functions, and CloudWatch --- reducing ops effort by $\sim$30\%.
+  \item Improved async task throughput by 20\% by integrating RabbitMQ (message queuing)
+        and Celery (task management) into a microservices architecture, replacing
+        synchronous bottlenecks in a high-frequency data pipeline.
+  \bitem{Managed and mentored a team of engineers}{\ --- drove sprint planning,
+        technical task delegation, and code reviews, enabling the team to consistently
+        ship production features on schedule across the serverless and API delivery tracks.}
+\end{itemize}
 
-  \resumeSubHeadingListEnd
+\vspace{4pt}
 
+% Futurense
+\jobheader{Data Engineer}{Futurense Technologies}{Bengaluru, India}{Aug 2021 -- Jan 2022}
+\begin{itemize}
+  \item Reduced batch processing time by 20\% by migrating legacy ETL jobs to distributed
+        Apache PySpark pipelines on a Hadoop cluster --- enabling near-real-time insights
+        from datasets previously requiring 4+ hours to process.
+  \item Transformed 10M+ record unstructured datasets into analytics-ready formats using
+        PySpark, accelerating reporting cycles for 3+ downstream business teams from
+        weekly to daily cadence.
+\end{itemize}
 
-%-----------PROJECTS-----------
-% \section{Projects}
-%    \resumeSubHeadingListStart
-%      \resumeProjectHeading
-%          {\textbf{Gitlytics} $|$ \emph{Python, Flask, React, PostgreSQL, Docker}}{June 2020 -- Present}
-%          \resumeItemListStart
-%            \resumeItem{Developed a full-stack web application using with Flask serving a REST API with React as the frontend}
-%            \resumeItem{Implemented GitHub OAuth to get data from user’s repositories}
-%            \resumeItem{Visualized GitHub data to show collaboration}
-%            \resumeItem{Used Celery and Redis for asynchronous tasks}
-%          \resumeItemListEnd
-%      \resumeProjectHeading
-%          {\textbf{Simple Paintball} $|$ \emph{Spigot API, Java, Maven, TravisCI, Git}}{May 2018 -- May 2020}
-%          \resumeItemListStart
-%            \resumeItem{Developed a Minecraft server plugin to entertain kids during free time for a previous job}
-%            \resumeItem{Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review}
-%            \resumeItem{Implemented continuous delivery using TravisCI to build the plugin upon new a release}
-%            \resumeItem{Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin}
-%          \resumeItemListEnd
-%    \resumeSubHeadingListEnd
+\vspace{4pt}
 
-%-----------EDUCATION-----------
+% Amdocs SE
+\jobheader{Software Engineer}{Amdocs SmartOps India}{Pune, India}{Jul 2020 -- Aug 2021}
+\begin{itemize}
+  \item Reduced service downtime by 25\% and improved response times by 15\% across 10+
+        enterprise accounts --- built a production SLA Monitoring Tool in Python + Flask
+        adopted as a core ops tool across the global delivery org.
+  \item Designed real-time web dashboards with SLA visualizations and RESTful APIs,
+        replacing manual reporting processes and saving 5+ hours/week in account
+        manager overhead.
+  \item Delivered the tool as a solo engineer: full-stack ownership from PostgreSQL schema
+        design to frontend charting --- demonstrating end-to-end architecture capability
+        within a 200+ engineer organization.
+\end{itemize}
+
+\vspace{4pt}
+
+% Amdocs ASE
+\jobheader{Associate Software Engineer}{Amdocs SmartOps India}{Pune, India}{Nov 2018 -- Jul 2020}
+\begin{itemize}
+  \item Contributed to Amdocs Activation Manager --- a mission-critical provisioning
+        platform serving global telco clients --- developing Python backend modules and
+        RESTful API integrations.
+  \item Built automation scripts eliminating repetitive manual workflows, reducing team
+        operational overhead by an estimated 3--4 hours/week and improving reliability
+        of deployment pipelines.
+  \item Earned Amdocs Value Award (Q3 FY2019-20) and SRE Team Award (Mar 2020) for
+        impactful delivery and cross-functional collaboration within a large-scale
+        enterprise engineering org.
+\end{itemize}
+
+% ── Education ───────────────────────────────────────────────
 \section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Lakshmi Narain College of Technology}{Bhopal, India}
-      {Bachelor of Engineering , Computer Science}{2014 - 2018}
-  \resumeSubHeadingListEnd
 
-%-----------Certifications-----------
-% \section{Certifications}
-%   \begin{itemize}[leftmargin=0.15in, label={}]
-%     \small{\item{
-%      \textbf{Cloud Digital Leader - Google Cloud} \\
-%      \textit{Issued Sep 2022 - Expires Sep 2025} \\
-%     }}
- % \end{itemize}
+\jobheader{Bachelor of Engineering, Computer Science}{Lakshmi Narain College of Technology}{Bhopal, India}{2014 -- 2018}
 
+% ── Certifications & Recognition ────────────────────────────
+\section{Certifications \& Recognition}
 
-%-------------------------------------------
+\begin{itemize}
+  \item Ultimate AWS Certified Developer Associate --- Udemy (Jun 2021)
+        \quad|\quad Target: Official AWS CDA exam (in progress)
+  \item Amdocs Value Award --- Best Performer FY 2019--20
+        \quad|\quad SRE Team Award --- Mar 2020
+        \quad|\quad Team Value Award --- Aug 2020
+\end{itemize}
+
+% ════════════════════════════════════════════════════════════
 \end{document}
-
