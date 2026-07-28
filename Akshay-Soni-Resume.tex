@@ -1,12 +1,12 @@
 %% Akshay Soni — Resume
 %% Compile with: pdflatex Akshay_Soni_Resume.tex
 
-\documentclass[10.5pt, letterpaper]{article}
+\documentclass[10pt, letterpaper]{article}
 
 % ── Packages ────────────────────────────────────────────────
 \usepackage[
-  top=0.55in, bottom=0.55in,
-  left=0.65in, right=0.65in
+  top=0.45in, bottom=0.45in,
+  left=0.7in, right=0.7in
 ]{geometry}
 \usepackage{fontenc}
 \usepackage{inputenc}
@@ -40,17 +40,17 @@
 
 % ── Section heading style ───────────────────────────────────
 \titleformat{\section}
-  {\small\bfseries\color{accentblue}\vspace{2pt}}
+  {\normalsize\bfseries\color{accentblue}\vspace{0pt}}
   {}{0em}{\uppercase}
-  [\vspace{1pt}{\color{rulecolor}\hrule}\vspace{4pt}]
-\titlespacing{\section}{0pt}{10pt}{4pt}
+  [\vspace{0.5pt}{\color{rulecolor}\hrule}\vspace{2pt}]
+\titlespacing{\section}{0pt}{5pt}{2pt}
 
 % ── Bullet list settings ────────────────────────────────────
 \setlist[itemize]{
-  leftmargin=1.4em,
-  itemsep=1.5pt,
+  leftmargin=1.3em,
+  itemsep=0.5pt,
   parsep=0pt,
-  topsep=2pt,
+  topsep=0.5pt,
   label=\textbullet
 }
 
@@ -58,11 +58,11 @@
 
 % Job header: Title · Company | Location | Dates
 \newcommand{\jobheader}[4]{%
-  \vspace{5pt}%
+  \vspace{2pt}%
   {\color{darktext}\textbf{#1}}%
   {\color{graytext}\ $\cdot$\ #2}\\[1pt]%
   {\small\color{graytext}#3 \quad|\quad #4}%
-  \vspace{2pt}%
+  \vspace{1pt}%
 }
 
 % Bold prefix inside a bullet
@@ -86,142 +86,101 @@
     Senior Python \& AWS Engineer
     \ $\cdot$\
     Distributed Systems \& Serverless Architectures
-  }\\[5pt]
+  }\\[4pt]
   {\small\color{graytext}
     Pune, India
     \ $\cdot$\
     +91 88716 67107
     \ $\cdot$\
-    \href{mailto:akshaysoni460@gmail.com}{\underline{akshaysoni460@gmail.com}}
+    \href{mailto:akshaysoni460@gmail.com}{\underline{akshaysoni.dev@gmail.com}}
     \ $\cdot$\
     \href{https://linkedin.com/in/imakshaysoni}{\underline{linkedin.com/in/imakshaysoni}}
     \ $\cdot$\
     \href{https://github.com/imakshaysoni}{\underline{github.com/imakshaysoni}}
   }
 \end{center}
- 
+
 \vspace{2pt}
- 
+
 % ── Professional Summary ────────────────────────────────────
 \section{Professional Summary}
 
-Senior Python \& AWS Engineer with 7.5+ years designing and shipping scalable distributed
-systems across fintech, telecom, cloud infrastructure, and big data. Specializes in
-high-level design (HLD) of microservices, event-driven, and serverless architectures ---
-delivering measurable results: 25\% reduction in service downtime, 20\% improvement in
-API throughput, and 25\% increase in concurrent user capacity. Passionate about system
-design principles, fault-tolerant architecture, and building production systems that
-perform reliably at scale.
+Senior Python \& AWS Engineer with 8 years architecting scalable, fault-tolerant distributed systems across fintech, telecom, and big data. Expert in high-level design (HLD) of microservices, event-driven, and serverless architectures, driving 25\% lower downtime, 20\% higher API throughput, and 25\% greater concurrent-user capacity in production.
 
+\vspace{2pt}
 % ── Technical Skills ────────────────────────────────────────
 \section{Technical Skills}
 
-\skillrow{Languages}{Python $\cdot$ SQL $\cdot$ NoSQL}
-\skillrow{Frameworks \& Libraries}{FastAPI $\cdot$ Flask $\cdot$ Django $\cdot$ Boto3 $\cdot$ Celery $\cdot$ SQLAlchemy}
-\skillrow{Cloud \& DevOps}{AWS (Lambda $\cdot$ EC2 $\cdot$ S3 $\cdot$ API Gateway $\cdot$ Step Functions $\cdot$ EventBridge $\cdot$ SQS $\cdot$ CloudWatch $\cdot$ RDS) $\cdot$ Docker $\cdot$ CI/CD $\cdot$ Git}
-\skillrow{Distributed Systems}{Apache Kafka $\cdot$ Apache Spark (PySpark) $\cdot$ Hadoop $\cdot$ Databricks $\cdot$ Redis $\cdot$ RabbitMQ}
-\skillrow{Databases}{PostgreSQL $\cdot$ MySQL $\cdot$ DynamoDB}
-\skillrow{Architecture \& Design}{Microservices Architecture $\cdot$ Event-Driven Architecture $\cdot$ Serverless $\cdot$ High-Level Design (HLD) $\cdot$ REST APIs $\cdot$ System Design}
-\skillrow{Practices}{Data Structures \& Algorithms $\cdot$ Agile $\cdot$ Scrum $\cdot$ Code Review $\cdot$ Technical Documentation}
+Python $\cdot$ FastAPI $\cdot$ AWS $\cdot$ SQL/NoSQL $\cdot$ PostgreSQL $\cdot$ Redis $\cdot$ Kafka $\cdot$ Docker $\cdot$ Microservices $\cdot$ System Design $\cdot$ DSA
 
+\vspace{2pt}
 % ── Professional Experience ──────────────────────────────────
 \section{Professional Experience}
 
 % Synechron
-\jobheader{Senior Associate Technology (Python \& AWS)}{Synechron}{Pune, India}{Aug 2024 -- Present}
+\jobheader{Senior Associate Technology (Python \& AWS)}{Synechron}{Pune, India}{Aug 2024 -- Jul 2026}
 \begin{itemize}
   \item Accelerated high-volume financial risk analysis by developing multiprocessing Python
-        scripts deployed on AWS Lambda --- enabling parallel execution across thousands of
-        daily data records and reducing processing time by 30\%.
-  \item Engineered robust GSM domain solutions in Python that improved system SLA compliance
-        and directly reduced incident escalation rate --- contributing to measurable
-        reliability improvements across the production environment.
-  \item Designed and maintained scalable cloud-native workflows on AWS (Lambda, S3,
-        CloudWatch), ensuring sub-second SLA response times for critical financial
-        operations serving enterprise clients.
-  \bitem{Led and mentored a team of engineers}{\ --- conducted regular code reviews,
-        defined technical task breakdown, and ensured on-time delivery of sprint
-        commitments across GSM domain feature work.}
+        scripts deployed on AWS Lambda, reducing processing time by 30\%.
+  \item Engineered GSM domain solutions in Python that improved system SLA compliance and
+        reduced incident escalation rate across the production environment.
+  \item Designed scalable cloud-native workflows on AWS (Lambda, S3, CloudWatch), ensuring
+        sub-second SLA response times for critical financial operations.
+  \bitem{Led and mentored a team of engineers}{\ --- code reviews, task breakdown, and
+        on-time delivery of sprint commitments across GSM domain feature work.}
 \end{itemize}
-
-\vspace{4pt}
 
 % Opcito
 \jobheader{Senior Software Engineer}{Opcito Technologies}{Pune, India}{Jan 2022 -- Aug 2024}
 \begin{itemize}
-  \item Boosted API throughput by 20\% and increased concurrent user capacity by 25\% ---
-        architected high-performance RESTful APIs using FastAPI integrated with AWS API
-        Gateway, serving production traffic at scale.
-  \item Eliminated manual deployment overhead by engineering a fully serverless Python
-        application on AWS Lambda with event-driven orchestration via EventBridge, Step
-        Functions, and CloudWatch --- reducing ops effort by $\sim$30\%.
-  \item Improved async task throughput by 20\% by integrating RabbitMQ (message queuing)
-        and Celery (task management) into a microservices architecture, replacing
-        synchronous bottlenecks in a high-frequency data pipeline.
-  \bitem{Managed and mentored a team of engineers}{\ --- drove sprint planning,
-        technical task delegation, and code reviews, enabling the team to consistently
-        ship production features on schedule across the serverless and API delivery tracks.}
+  \item Boosted API throughput by 20\% and concurrent user capacity by 25\% --- architected
+        high-performance RESTful APIs using FastAPI integrated with AWS API Gateway.
+  \item Eliminated manual deployment overhead by engineering a serverless Python application
+        on AWS Lambda with event-driven orchestration (EventBridge, Step Functions,
+        CloudWatch), reducing ops effort by $\sim$30\%.
+  \item Improved async task throughput by 20\% by integrating RabbitMQ and Celery into a
+        microservices architecture, replacing synchronous bottlenecks in a high-frequency
+        data pipeline.
+  \bitem{Managed and mentored a team of engineers}{\ --- sprint planning, task delegation,
+        and code reviews, shipping production features on schedule.}
 \end{itemize}
-
-\vspace{4pt}
 
 % Futurense
 \jobheader{Data Engineer}{Futurense Technologies}{Bengaluru, India}{Aug 2021 -- Jan 2022}
 \begin{itemize}
   \item Reduced batch processing time by 20\% by migrating legacy ETL jobs to distributed
-        Apache PySpark pipelines on a Hadoop cluster --- enabling near-real-time insights
-        from datasets previously requiring 4+ hours to process.
+        Apache PySpark pipelines on a Hadoop cluster, enabling near-real-time insights.
   \item Transformed 10M+ record unstructured datasets into analytics-ready formats using
-        PySpark, accelerating reporting cycles for 3+ downstream business teams from
-        weekly to daily cadence.
+        PySpark, accelerating reporting cycles for 3+ business teams from weekly to daily.
 \end{itemize}
 
-\vspace{4pt}
-
-% Amdocs SE
-\jobheader{Software Engineer}{Amdocs SmartOps India}{Pune, India}{Jul 2020 -- Aug 2021}
+% Amdocs
+\jobheader{Software Engineer}{Amdocs SmartOps India}{Pune, India}{Nov 2018 -- Aug 2021}
 \begin{itemize}
   \item Reduced service downtime by 25\% and improved response times by 15\% across 10+
-        enterprise accounts --- built a production SLA Monitoring Tool in Python + Flask
-        adopted as a core ops tool across the global delivery org.
-  \item Designed real-time web dashboards with SLA visualizations and RESTful APIs,
-        replacing manual reporting processes and saving 5+ hours/week in account
-        manager overhead.
-  \item Delivered the tool as a solo engineer: full-stack ownership from PostgreSQL schema
-        design to frontend charting --- demonstrating end-to-end architecture capability
-        within a 200+ engineer organization.
+        enterprise accounts --- built a production SLA Monitoring Tool in Python + Flask.
+  \item Designed real-time web dashboards with SLA visualizations and RESTful APIs, saving
+        5+ hours/week in account manager overhead as a solo engineer, from PostgreSQL
+        schema design to frontend charting.
+  \item Contributed to Amdocs Activation Manager, a mission-critical provisioning platform
+        for global telco clients --- developed Python backend modules and REST API
+        integrations, and built automation scripts cutting team overhead by 3--4 hours/week.
+  \item Earned Amdocs Value Award (Q3 FY2019-20) and SRE Team Award (Mar 2020).
 \end{itemize}
 
 \vspace{4pt}
-
-% Amdocs ASE
-\jobheader{Associate Software Engineer}{Amdocs SmartOps India}{Pune, India}{Nov 2018 -- Jul 2020}
-\begin{itemize}
-  \item Contributed to Amdocs Activation Manager --- a mission-critical provisioning
-        platform serving global telco clients --- developing Python backend modules and
-        RESTful API integrations.
-  \item Built automation scripts eliminating repetitive manual workflows, reducing team
-        operational overhead by an estimated 3--4 hours/week and improving reliability
-        of deployment pipelines.
-  \item Earned Amdocs Value Award (Q3 FY2019-20) and SRE Team Award (Mar 2020) for
-        impactful delivery and cross-functional collaboration within a large-scale
-        enterprise engineering org.
-\end{itemize}
-
 % ── Education ───────────────────────────────────────────────
 \section{Education}
 
 \jobheader{Bachelor of Engineering, Computer Science}{Lakshmi Narain College of Technology}{Bhopal, India}{2014 -- 2018}
 
+\vspace{4pt}
 % ── Certifications & Recognition ────────────────────────────
 \section{Certifications \& Recognition}
 
 \begin{itemize}
   \item Ultimate AWS Certified Developer Associate --- Udemy (Jun 2021)
-        \quad|\quad Target: Official AWS CDA exam (in progress)
-  \item Amdocs Value Award --- Best Performer FY 2019--20
-        \quad|\quad SRE Team Award --- Mar 2020
-        \quad|\quad Team Value Award --- Aug 2020
+  \item Amdocs Value Award (FY 2019--20) \quad|\quad SRE Team Award (Mar 2020) \quad|\quad Team Value Award (Aug 2020)
 \end{itemize}
 
 % ════════════════════════════════════════════════════════════
